@@ -1,19 +1,29 @@
-module.exports = {
+export default {
   extends: ['@commitlint/config-conventional'],
-  headerCorrespondence: ['type', 'scope', 'subject'],
   rules: {
     'type-enum': [
       2,
       'always',
-      ['feat', 'fix', 'perf', 'chore', 'doc', 'style', 'refactor', 'test']
+      [
+        'feat',
+        'fix',
+        'docs',
+        'perf',
+        'revert',
+        'ci',
+        'test',
+        'refactor',
+        'build',
+        'style',
+        'chore'
+      ]
     ],
-    'scope-enum': [2, 'always', ['ci', 'build', 'common', 'view', 'model']],
-    'type-case': [0],
-    'type-empty': [0],
-    'scope-empty': [2, 'never'],
-    'scope-case': [0],
-    'subject-full-stop': [0],
-    'subject-case': [0, 'never'],
-    'header-max-length': [0, 'always', 72]
+    'type-case': [0], //type 的输入格式,默认为小写‘lower-case’
+    'type-empty': [0], //type 是否可为空
+    'scope-empty': [0], //scope 是否为空
+    'scope-case': [0], //scope 的格式,默认为小写‘lower-case’
+    'subject-full-stop': [0, 'never'], //subject 结尾符,默认为.
+    'subject-case': [0, 'never'], //subject 的格式，默认其中之一：['sentence-case', 'start-case', 'pascal-case', 'upper-case']
+    'header-max-length': [0, 'always', 72] //header 最大长度，默认为72字符
   }
 }
